@@ -3,6 +3,7 @@ import { useState } from "react";
 import cn from "classnames";
 import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
   const [time, setTime] = useState("朝食");
@@ -142,13 +143,21 @@ export default function Home() {
         </div>
         <div className="w-full px-[72px] pb-20">
           <button
-            className="bg-main-red text-sub-yellow w-full py-4 text-lg font-bold rounded-2xl"
-            onClick={
-              () =>
-                router.push(
-                  "/recipe"
-                ) /* ここに献立を立てる処理を書く。レシピページに遷移する処理は一時的に入れている */
-            }
+            onClick={() => {
+              router.push(
+                ("/recipe?meal_type=" +
+                  time +
+                  "&dish_num=" +
+                  number +
+                  "&tastes=" +
+                  taste +
+                  "&main_dish=" +
+                  main +
+                  "&preference=" +
+                  other) as "recipe"
+              );
+            }}
+            className="bg-main-red text-sub-yellow w-full py-4 text-lg font-bold rounded-2xl text-center"
           >
             献立を立てる
           </button>

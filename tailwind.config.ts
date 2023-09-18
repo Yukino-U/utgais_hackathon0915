@@ -35,6 +35,19 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        "pulsate-fwd": "pulsate-fwd 1.5s ease  infinite both"
+    },
+    keyframes: {
+        "pulsate-fwd": {
+            "0%,to": {
+                transform: "scale(1)"
+            },
+            "50%": {
+                transform: "scale(1.1)"
+            }
+        }
+      },
     },
   },
   plugins: [],
